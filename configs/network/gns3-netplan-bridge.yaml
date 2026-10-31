@@ -1,0 +1,19 @@
+# Puente br0 sobre eth0 en la GNS3 VM: permite enlazar el Cloud de GNS3
+# al segmento vmnet de VMware. La MAC hereda de la vNIC (imprescindible).
+network:
+  version: 2
+  ethernets:
+    eth0: {}
+  bridges:
+    br0:
+      interfaces: [eth0]
+      macaddress: 00:0c:29:71:0d:74
+      addresses: [172.16.100.129/24]
+      nameservers:
+        addresses: [1.1.1.1, 8.8.8.8]
+      routes:
+        - to: default
+          via: 172.16.100.2
+      parameters:
+        stp: false
+        forward-delay: 0

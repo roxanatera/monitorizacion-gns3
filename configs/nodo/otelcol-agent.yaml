@@ -1,0 +1,28 @@
+receivers:
+  hostmetrics:
+    scrapers:
+      cpu: {}
+      memory: {}
+      network: {}
+  filelog:
+    include: [/var/log/auth.log]
+    start_at: beginning
+processors:
+  resource/ident:
+    attributes:
+      - key: service.name
+        value: node1
+        action: upsert
+exporters:
+  otlphttp/mcol:
+    endpoint: http://172.16.100.10:4318
+service:
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: [resource/ident]
+      exporters: [otlphttp/mcol]
+    logs:
+      receivers: [filelog]
+      processors: [resource/ident]
+      exporters: [otlphttp/mcol]

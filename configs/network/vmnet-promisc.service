@@ -1,0 +1,10 @@
+# Fedora host: propietario opcional en /dev/vmnet* hacia promiscuous flows
+[Unit]
+Description=Permitir modo promiscuo en /dev/vmnet8 (GNS3 bridge passthrough)
+After=vmware.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'until [ -e /dev/vmnet8 ]; do sleep 2; done; chmod 666 /dev/vmnet8'
+[Install]
+WantedBy=multi-user.target
