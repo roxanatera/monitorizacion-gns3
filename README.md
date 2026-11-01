@@ -13,7 +13,7 @@
 
 ---
 
-## 🧩 Qué demuestra este proyecto
+## Qué demuestra este proyecto
 
 1. **Red virtual en GNS3** con dos nodos **Ubuntu 24.04 dockerizados**, un switch virtual y un **Ubuntu Server** de monitorización — GNS3 GUI en Fedora y el *compute* GNS3 corriendo dentro de **VMware Workstation**.
 2. **Métricas de sistemas** (CPU, memoria, tráfico de red) recogidas por **Prometheus** vía `node_exporter` en los dos nodos dockerizados.
@@ -24,7 +24,7 @@
 
 ---
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 ```
 ┌──────────────────── HOST FEDORA ────────────────────────┐
